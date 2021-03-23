@@ -1,15 +1,37 @@
 package flashcards
 
-import java.util.*
-
 fun main() {
-    val scanner = Scanner(System.`in`)
-    val term =scanner.nextLine()
-    val definition =scanner.nextLine()
-    val answer =scanner.nextLine()
+    println("Input the number of cards:")
+    val count = readLine()!!.toInt()
 
-    if (definition == answer)
-        println("Your answer is right!")
-    else
-        println("Your answer is wrong...")
+    val cards = mutableListOf<List<String>>()
+    var list: List<String> = emptyList()
+    var term: String = ""
+    var definition: String = ""
+
+    var n = 1
+    repeat(count) {
+        println("Card #$n:")
+        term = readLine()!!
+
+        println("The definition for card #$n:")
+        definition = readLine()!!
+
+        list = listOf(term.toString(), definition.toString())
+        cards += list
+        n++
+    }
+
+    n = 1
+    repeat(count) {
+        term = cards[it][0]
+        definition = cards[it][1]
+        println("Print the definition of \"$term\":")
+        val answer = readLine()!!
+        if (definition == answer)
+            println("Correct!")
+        else
+            println("Wrong. The right answer is \"$definition\".")
+        n++
+    }
 }
