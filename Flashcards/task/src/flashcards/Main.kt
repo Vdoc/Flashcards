@@ -1,8 +1,15 @@
 package flashcards
 
+import java.util.*
+
 fun main() {
-    println("Card:")
-    println("2+2")
-    println("Definition:")
-    println("4")
+    val scanner = Scanner(System.`in`)
+    val term =scanner.nextLine()
+    val definition =scanner.nextLine()
+    val answer =scanner.nextLine()
+
+    if (definition == answer)
+        println("Your answer is right!")
+    else
+        println("Your answer is wrong...")
 }
